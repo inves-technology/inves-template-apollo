@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  inves-template-apollo:
+    container_name: ${PROJECT}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        PROJECT: ${PROJECT}
+    ports:
+      - '4001:4001'
+    volumes:
+      - '/${PROJECT}/source/node_modules'
+      - '/${PROJECT}/source/build'
+      - './.aws:/root/.aws:delegated'
+      - '.:/${PROJECT}/source:delegated'
+    environment:
+      - NODE_ENV=development
+      - AWS_PROFILE=inves-technology
+      - PROJECT=${PROJECT}
+    entrypoint: top
+    networks:
+      - inves-technology
+    logging:
+      driver: none
+
+networks:
+  inves-technology:
+    name: inves-technology
+    external: true

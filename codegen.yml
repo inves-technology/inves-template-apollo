@@ -1,0 +1,19 @@
+overwrite: true
+schema: 'http://localhost:4001/'
+documents: null
+generates:
+  ./src/generated/inves-types.ts:
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+    config:
+      # defaultMapper: any
+      skipTypename: true
+      scalars:
+        String: string
+        Float: number
+        Int: number
+      declarationKind: interface
+    plugins:
+      - typescript
+      - typescript-resolvers

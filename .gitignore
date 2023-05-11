@@ -1,0 +1,28 @@
+# build directories
+**/build
+
+# Webpack directories
+**/.webpack
+
+# aws
+**/.aws/**
+
+# Error Logs (Including yarn)
+*error.log
+
+# Terraform
+cdktf.out
+cdktf.log
+*terraform.*.tfstate*
+.gen
+.terraform
+infrastructure/builds
+.terraform.lock.hcl
+*tfplan*
+
+
+# Security report
+zap-report.html
+
+# Node modules
+node_modules
