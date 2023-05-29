@@ -17,12 +17,6 @@ export const helloWorldTypeDefs = `#graphql
 `;
 
 export const helloWorldResolvers = {
-  HelloWorldResponse: {
-    // Weird attempt to make apollo warning go away. Unsure whether it does what it should?
-    __resolveType(item: Record<string, unknown>): unknown {
-      return item.type;
-    },
-  },
   Query: {
     async helloWorld(_obj: unknown, args: QueryHelloWorldArgs, context: Context): Promise<HelloWorldResponse> {
       return helloWorld(context, args.input.name);
