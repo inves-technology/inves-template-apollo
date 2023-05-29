@@ -25,6 +25,7 @@ A simple Hello World Template Apollo Lambda function featuring:
 # Set Service Name var:
 SERVICENAME=hello-world-apollo-from-template
 AWSPROFILE=inves-technology
+AWSREGION=eu-west-1
 # Init and copy template from github:
 mkdir $SERVICENAME && \
   git clone https://github.com/inves-technology/inves-template-apollo.git $SERVICENAME && \
@@ -32,6 +33,7 @@ mkdir $SERVICENAME && \
   rm -rf .git && \
   grep -rl inves-template-apollo . --exclude=README.md | xargs sed -i 's/inves-template-apollo/'"$SERVICENAME"'/g' && \
   grep -rl inves-technology . --exclude=README.md | xargs sed -i 's/inves-technology/'"$AWSPROFILE"'/g' && \
+  grep -rl af-south-1 . --exclude=README.md | xargs sed -i 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
   make yarn && make init && \
   code .
@@ -43,6 +45,7 @@ mkdir $SERVICENAME && \
 # Set Service Name var:
 SERVICENAME=hello-world-apollo-from-template
 AWSPROFILE=inves-technology
+AWSREGION=eu-west-1
 # Init and copy template from github:
 mkdir $SERVICENAME && \
   git clone https://github.com/inves-technology/inves-template-apollo.git $SERVICENAME && \
@@ -50,6 +53,7 @@ mkdir $SERVICENAME && \
   rm -rf .git && \
   grep -rl inves-template-apollo . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/inves-template-apollo/'"$SERVICENAME"'/g' && \
   grep -rl inves-technology . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/inves-technology/'"$AWSPROFILE"'/g' && \
+  grep -rl af-south-1 . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
   make yarn && make init && \
   code .
